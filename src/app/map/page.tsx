@@ -30,15 +30,35 @@ export default function MapPage() {
   const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const locations: Location[] = [
+    // Hostels
     {
-      id: "hostel",
-      name: "Eitan Hostel",
+      id: "hostel1",
+      name: "Eitan Hostel - Arauco 272",
       category: "הוסטל",
-      description: "ההוסטל שלנו - Arauco 272",
+      description: "ההוסטל הראשי שלנו",
       lat: -39.2824,
       lng: -71.9545,
       color: "#16a34a",
     },
+    {
+      id: "hostel2",
+      name: "Eitan Hostel - Palguin 261",
+      category: "הוסטל",
+      description: "הוסטל נוסף",
+      lat: -39.2818,
+      lng: -71.9558,
+      color: "#16a34a",
+    },
+    {
+      id: "hostel3",
+      name: "Eitan Hostel - Arauco 265",
+      category: "הוסטל",
+      description: "הוסטל נוסף",
+      lat: -39.2826,
+      lng: -71.9541,
+      color: "#16a34a",
+    },
+    // Banks
     {
       id: "bank1",
       name: "כספומט Eltit",
@@ -69,6 +89,89 @@ export default function MapPage() {
       color: "#9333ea",
       mapsUrl: "https://maps.app.goo.gl/cqgN4xd6KDBNLbpB7"
     },
+    // Restaurants
+    {
+      id: "sushi1",
+      name: "Sushi Mora",
+      category: "מסעדה",
+      description: "סושי מומלץ",
+      lat: -39.2815,
+      lng: -71.9535,
+      color: "#dc2626",
+    },
+    {
+      id: "sushi2",
+      name: "Black Forest",
+      category: "מסעדה",
+      description: "סושי",
+      lat: -39.2822,
+      lng: -71.9552,
+      color: "#dc2626",
+    },
+    {
+      id: "israeli",
+      name: "Just Delicious",
+      category: "מסעדה",
+      description: "אוכל ישראלי",
+      lat: -39.2828,
+      lng: -71.9548,
+      color: "#2563eb",
+    },
+    {
+      id: "italian1",
+      name: "Andiamo",
+      category: "מסעדה",
+      description: "איטלקי",
+      lat: -39.2820,
+      lng: -71.9530,
+      color: "#059669",
+    },
+    {
+      id: "italian2",
+      name: "Fiorentini",
+      category: "מסעדה",
+      description: "איטלקי",
+      lat: -39.2812,
+      lng: -71.9542,
+      color: "#059669",
+    },
+    {
+      id: "burger",
+      name: "El Camino",
+      category: "מסעדה",
+      description: "המבורגר",
+      lat: -39.2835,
+      lng: -71.9555,
+      color: "#d97706",
+    },
+    {
+      id: "pizza1",
+      name: "Pizza Cala",
+      category: "מסעדה",
+      description: "פיצה",
+      lat: -39.2808,
+      lng: -71.9538,
+      color: "#dc2626",
+    },
+    {
+      id: "pizza2",
+      name: "La Cova",
+      category: "מסעדה",
+      description: "פיצה",
+      lat: -39.2830,
+      lng: -71.9525,
+      color: "#dc2626",
+    },
+    {
+      id: "thai",
+      name: "Phuket",
+      category: "מסעדה",
+      description: "תאילנדי",
+      lat: -39.2817,
+      lng: -71.9560,
+      color: "#0d9488",
+    },
+    // Attractions
     {
       id: "volcano",
       name: "הר געש וויאריקה",
@@ -91,8 +194,9 @@ export default function MapPage() {
 
   const categories = [
     { name: "הכל", value: null },
-    { name: "הוסטל", value: "הוסטל" },
+    { name: "הוסטלים", value: "הוסטל" },
     { name: "בנקים", value: "בנק" },
+    { name: "מסעדות", value: "מסעדה" },
     { name: "אטרקציות", value: "אטרקציה" },
   ];
 

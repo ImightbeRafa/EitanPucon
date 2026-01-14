@@ -49,6 +49,9 @@ export default function Footer() {
         </div>
         
         <div className="text-center mt-8 pt-6 border-t border-green-700">
+          <p className="text-green-200 mb-2">
+            הוסטלים: Arauco 272 • Palguin 261 • Arauco 265
+          </p>
           <p className="text-green-200">
             © {new Date().getFullYear()} Eitan Pucon - כל הזכויות שמורות
           </p>
