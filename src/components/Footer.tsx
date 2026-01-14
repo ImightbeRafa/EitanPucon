@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mountain } from "lucide-react";
+import { Mountain, MessageCircle } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -17,19 +17,35 @@ export default function Footer() {
             <Link href="/tours" className="hover:text-green-200 transition-colors">
               טיולים
             </Link>
-            <Link href="/tours/volcano" className="hover:text-green-200 transition-colors">
-              הר געש
+            <Link href="/transport" className="hover:text-green-200 transition-colors">
+              תחבורה
             </Link>
-            <Link href="/tours/skydiving" className="hover:text-green-200 transition-colors">
-              צניחה
+            <Link href="/map" className="hover:text-green-200 transition-colors">
+              מפה
+            </Link>
+            <Link href="/restaurants" className="hover:text-green-200 transition-colors">
+              מסעדות
             </Link>
             <Link href="/bank" className="hover:text-green-200 transition-colors">
-              משיכת כסף
+              כסף
             </Link>
             <Link href="/laundry" className="hover:text-green-200 transition-colors">
               מכבסות
             </Link>
           </div>
+        </div>
+
+        {/* WhatsApp Contact */}
+        <div className="flex justify-center mt-6">
+          <a
+            href="https://wa.me/972533839795"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 bg-green-600 hover:bg-green-500 px-6 py-3 rounded-full transition-colors"
+          >
+            <MessageCircle className="w-5 h-5" />
+            <span className="font-bold">צרו קשר בוואטסאפ</span>
+          </a>
         </div>
         
         <div className="text-center mt-8 pt-6 border-t border-green-700">

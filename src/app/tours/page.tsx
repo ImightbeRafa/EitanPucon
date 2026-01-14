@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mountain, Plane, Compass } from "lucide-react";
+import { Mountain, Plane, Waves, Users, Star } from "lucide-react";
 
 export default function ToursPage() {
   return (
@@ -45,7 +45,7 @@ export default function ToursPage() {
           {/* Skydiving Tour */}
           <Link href="/tours/skydiving" className="card-hover group">
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
-              <div className="bg-gradient-to-br from-blue-500 to-indigo-600 h-48 flex items-center justify-center">
+              <div className="bg-gradient-to-br from-sky-500 to-blue-600 h-48 flex items-center justify-center">
                 <Plane className="w-24 h-24 text-white opacity-80 group-hover:scale-110 transition-transform" />
               </div>
               <div className="p-6">
@@ -66,17 +66,106 @@ export default function ToursPage() {
               </div>
             </div>
           </Link>
-        </div>
 
-        {/* Coming Soon Section */}
-        <div className="mt-12 bg-gray-100 rounded-2xl p-8 text-center">
-          <Compass className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-          <h3 className="text-2xl font-bold text-gray-600 mb-2">
-            עוד טיולים בקרוב...
-          </h3>
-          <p className="text-gray-500">
-            אנחנו עובדים על עוד חוויות מדהימות בשבילכם. הישארו מעודכנים!
-          </p>
+          {/* Canyoning Tour */}
+          <Link href="/tours/canyoning" className="card-hover group">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="bg-gradient-to-br from-cyan-500 to-blue-600 h-48 flex items-center justify-center">
+                <Waves className="w-24 h-24 text-white opacity-80 group-hover:scale-110 transition-transform" />
+              </div>
+              <div className="p-6">
+                <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                  סנפלינג מפלים
+                </h2>
+                <p className="text-gray-600 mb-4">
+                  הליכה במים בקניון יפהפה עם סנפלינג בשלושה מפלים של 12-15 מטר
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-green-600 font-bold text-lg">
+                    35,000 פסו
+                  </span>
+                  <span className="text-blue-600 font-medium">
+                    לפרטים נוספים ←
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Rafting Tour */}
+          <Link href="/tours/rafting" className="card-hover group">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="bg-gradient-to-br from-blue-500 to-indigo-600 h-48 flex items-center justify-center">
+                <Users className="w-24 h-24 text-white opacity-80 group-hover:scale-110 transition-transform" />
+              </div>
+              <div className="p-6">
+                <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                  רפטינג דרגה 3/4
+                </h2>
+                <p className="text-gray-600 mb-4">
+                  אקסטרים בנהר Trancura בסירה עם 6 אנשים ומדריך - לא צריך ניסיון!
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-green-600 font-bold text-lg">
+                    מ-30,000 פסו
+                  </span>
+                  <span className="text-blue-600 font-medium">
+                    לפרטים נוספים ←
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Buddy Rafting Tour */}
+          <Link href="/tours/buddy-rafting" className="card-hover group">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="bg-gradient-to-br from-purple-500 to-pink-600 h-48 flex items-center justify-center">
+                <Waves className="w-24 h-24 text-white opacity-80 group-hover:scale-110 transition-transform" />
+              </div>
+              <div className="p-6">
+                <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                  באדי רפטינג
+                </h2>
+                <p className="text-gray-600 mb-4">
+                  רפטינג אישי במצוף - זורמים עם המים מהקרח שנמס מההר געש!
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-green-600 font-bold text-lg">
+                    40,000 פסו
+                  </span>
+                  <span className="text-blue-600 font-medium">
+                    לפרטים נוספים ←
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Zipline Tour */}
+          <Link href="/tours/zipline" className="card-hover group">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="bg-gradient-to-br from-amber-500 to-orange-600 h-48 flex items-center justify-center">
+                <Star className="w-24 h-24 text-white opacity-80 group-hover:scale-110 transition-transform" />
+              </div>
+              <div className="p-6">
+                <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                  אומגות (זיפליין)
+                </h2>
+                <p className="text-gray-600 mb-4">
+                  7 אומגות מעל מפל של 100 מטר - הכי טובות בפוקון!
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-green-600 font-bold text-lg">
+                    40,000 פסו
+                  </span>
+                  <span className="text-blue-600 font-medium">
+                    לפרטים נוספים ←
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
       </div>
     </div>

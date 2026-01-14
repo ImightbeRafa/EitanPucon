@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, Mountain, Plane, Landmark, Shirt, Home } from "lucide-react";
+import { Menu, X, Mountain, Landmark, Shirt, Home, Bus, MapPin, UtensilsCrossed } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -10,9 +10,10 @@ export default function Navbar() {
   const navItems = [
     { href: "/", label: "בית", icon: Home },
     { href: "/tours", label: "טיולים", icon: Mountain },
-    { href: "/tours/volcano", label: "הר געש", icon: Mountain },
-    { href: "/tours/skydiving", label: "צניחה", icon: Plane },
-    { href: "/bank", label: "משיכת כסף", icon: Landmark },
+    { href: "/transport", label: "תחבורה", icon: Bus },
+    { href: "/map", label: "מפה", icon: MapPin },
+    { href: "/restaurants", label: "מסעדות", icon: UtensilsCrossed },
+    { href: "/bank", label: "כסף", icon: Landmark },
     { href: "/laundry", label: "מכבסות", icon: Shirt },
   ];
 

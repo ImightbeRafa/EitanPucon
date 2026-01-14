@@ -1,6 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Clock, Mountain, DollarSign, Backpack, CheckCircle, AlertTriangle } from "lucide-react";
-import YouTubeEmbed from "@/components/YouTubeEmbed";
+import { ArrowRight, Clock, Mountain, DollarSign, Backpack, CheckCircle, AlertTriangle, Play } from "lucide-react";
 
 export default function VolcanoPage() {
   return (
@@ -25,10 +24,30 @@ export default function VolcanoPage() {
           </p>
         </div>
 
-        {/* Video */}
+        {/* Video Link */}
         <div className="mb-8">
           <h2 className="text-2xl font-bold text-gray-800 mb-4">צפו בסרטון</h2>
-          <YouTubeEmbed videoId="pm-luSFB_Vw" title="הר געש וויאריקה" />
+          <a 
+            href="https://www.youtube.com/watch?v=pm-luSFB_Vw" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="block relative rounded-xl overflow-hidden group"
+          >
+            <img 
+              src="https://img.youtube.com/vi/pm-luSFB_Vw/maxresdefault.jpg" 
+              alt="VILLARICA VOLCANO WITH EITAN HOSTEL PUCON"
+              className="w-full aspect-video object-cover"
+            />
+            <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors flex items-center justify-center">
+              <div className="bg-red-600 p-4 rounded-full group-hover:scale-110 transition-transform">
+                <Play className="w-12 h-12 text-white fill-white" />
+              </div>
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4">
+              <p className="text-white font-bold">VILLARICA VOLCANO WITH EITAN HOSTEL PUCON</p>
+              <p className="text-gray-300 text-sm">צפו בסרטון ביוטיוב</p>
+            </div>
+          </a>
         </div>
 
         {/* Safety Notice */}
