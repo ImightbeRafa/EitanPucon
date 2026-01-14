@@ -1,254 +1,213 @@
 "use client";
 
-import { useState } from "react";
-import { MapPin, Home, Landmark, Shirt, UtensilsCrossed, Mountain, ExternalLink } from "lucide-react";
+import { useState, useEffect } from "react";
+import { MapPin, Navigation, ExternalLink } from "lucide-react";
+import dynamic from "next/dynamic";
+
+// Dynamically import the map component to avoid SSR issues
+const MapComponent = dynamic(() => import("@/components/PuconMap"), { 
+  ssr: false,
+  loading: () => (
+    <div className="h-[500px] bg-stone-100 rounded-xl flex items-center justify-center">
+      <div className="text-stone-400">טוען מפה...</div>
+    </div>
+  )
+});
 
 interface Location {
   id: string;
   name: string;
   category: string;
-  icon: typeof MapPin;
-  color: string;
   description: string;
+  lat: number;
+  lng: number;
+  color: string;
   mapsUrl?: string;
-  position: { x: number; y: number };
 }
 
 export default function MapPage() {
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
 
   const locations: Location[] = [
     {
       id: "hostel",
       name: "Eitan Hostel",
       category: "הוסטל",
-      icon: Home,
-      color: "bg-green-500",
       description: "ההוסטל שלנו - Arauco 272",
-      mapsUrl: "https://maps.app.goo.gl/arauco272pucon",
-      position: { x: 50, y: 45 }
+      lat: -39.2824,
+      lng: -71.9545,
+      color: "#16a34a",
     },
     {
       id: "bank1",
-      name: "Banco Estado - Eltit",
+      name: "כספומט Eltit",
       category: "בנק",
-      icon: Landmark,
-      color: "bg-orange-500",
-      description: "כספומט עם העמלה הנמוכה - בתוך סופר Eltit",
-      mapsUrl: "https://maps.app.goo.gl/WENJ2PFUb2k9WUEx9",
-      position: { x: 35, y: 40 }
+      description: "Banco Estado - עמלה 5,500 פסו",
+      lat: -39.2831,
+      lng: -71.9562,
+      color: "#ea580c",
+      mapsUrl: "https://maps.app.goo.gl/WENJ2PFUb2k9WUEx9"
     },
     {
       id: "bank2",
-      name: "Banco Estado",
+      name: "כספומט ליד הבנק",
       category: "בנק",
-      icon: Landmark,
-      color: "bg-orange-500",
-      description: "ליד הבנק - 2 הכספומטים הראשונים משמאל",
-      mapsUrl: "https://maps.app.goo.gl/7RZahtS1ASsBtLPo6",
-      position: { x: 55, y: 35 }
+      description: "2 כספומטים ראשונים משמאל",
+      lat: -39.2819,
+      lng: -71.9538,
+      color: "#ea580c",
+      mapsUrl: "https://maps.app.goo.gl/7RZahtS1ASsBtLPo6"
     },
     {
       id: "casino",
-      name: "הקזינו",
-      category: "משיכת כסף",
-      icon: Landmark,
-      color: "bg-purple-500",
-      description: "משיכת כסף ללא עמלה - נפתח ב-18:00",
-      mapsUrl: "https://maps.app.goo.gl/cqgN4xd6KDBNLbpB7",
-      position: { x: 70, y: 55 }
-    },
-    {
-      id: "laundry",
-      name: "מכבסה",
-      category: "מכבסה",
-      icon: Shirt,
-      color: "bg-pink-500",
-      description: "מכבסה במרכז העיר",
-      position: { x: 45, y: 60 }
-    },
-    {
-      id: "sushi",
-      name: "Sushi Mora",
-      category: "מסעדה",
-      icon: UtensilsCrossed,
-      color: "bg-red-500",
-      description: "סושי מומלץ",
-      position: { x: 40, y: 50 }
-    },
-    {
-      id: "israeli",
-      name: "Just Delicious",
-      category: "מסעדה",
-      icon: UtensilsCrossed,
-      color: "bg-blue-500",
-      description: "אוכל ישראלי",
-      position: { x: 60, y: 45 }
+      name: "קזינו Enjoy",
+      category: "בנק",
+      description: "0% עמלה! נפתח ב-18:00",
+      lat: -39.2798,
+      lng: -71.9489,
+      color: "#9333ea",
+      mapsUrl: "https://maps.app.goo.gl/cqgN4xd6KDBNLbpB7"
     },
     {
       id: "volcano",
       name: "הר געש וויאריקה",
       category: "אטרקציה",
-      icon: Mountain,
-      color: "bg-red-600",
-      description: "ההר הגעש - נקודת ציון",
-      position: { x: 80, y: 20 }
-    }
+      description: "נקודת ציון - ההר הגעש",
+      lat: -39.4220,
+      lng: -71.9394,
+      color: "#dc2626",
+    },
+    {
+      id: "lake",
+      name: "אגם וויאריקה",
+      category: "אטרקציה",
+      description: "החוף המרכזי",
+      lat: -39.2756,
+      lng: -71.9523,
+      color: "#0891b2",
+    },
   ];
 
   const categories = [
-    { name: "הוסטל", color: "bg-green-500", icon: Home },
-    { name: "בנק", color: "bg-orange-500", icon: Landmark },
-    { name: "מכבסה", color: "bg-pink-500", icon: Shirt },
-    { name: "מסעדה", color: "bg-red-500", icon: UtensilsCrossed },
-    { name: "אטרקציה", color: "bg-red-600", icon: Mountain },
+    { name: "הכל", value: null },
+    { name: "הוסטל", value: "הוסטל" },
+    { name: "בנקים", value: "בנק" },
+    { name: "אטרקציות", value: "אטרקציה" },
   ];
 
+  const filteredLocations = activeCategory 
+    ? locations.filter(l => l.category === activeCategory)
+    : locations;
+
   return (
-    <div className="min-h-screen py-12 px-4">
-      <div className="max-w-6xl mx-auto">
+    <div className="min-h-screen py-12 px-4 bg-stone-50">
+      <div className="max-w-5xl mx-auto">
         {/* Header */}
-        <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-8 text-white mb-8">
-          <div className="flex items-center gap-4 mb-4">
-            <div className="bg-white/20 p-3 rounded-full">
-              <MapPin className="w-10 h-10" />
-            </div>
-            <h1 className="text-4xl md:text-5xl font-bold">מפת פוקון</h1>
+        <div className="text-center mb-8">
+          <div className="inline-flex items-center justify-center w-16 h-16 bg-stone-900 rounded-full mb-4">
+            <MapPin className="w-8 h-8 text-white" />
           </div>
-          <p className="text-xl opacity-90">
-            כל המקומות החשובים במקום אחד
+          <h1 className="text-4xl md:text-5xl font-light text-stone-800 mb-2">
+            מפת פוקון
+          </h1>
+          <p className="text-stone-500">
+            מיקומים חשובים של Eitan Pucon
           </p>
         </div>
 
-        {/* Legend */}
-        <div className="bg-white rounded-2xl shadow-lg p-4 mb-6">
-          <h3 className="font-bold text-gray-700 mb-3">מקרא:</h3>
-          <div className="flex flex-wrap gap-4">
-            {categories.map((cat, index) => (
-              <div key={index} className="flex items-center gap-2">
-                <div className={`${cat.color} w-4 h-4 rounded-full`}></div>
-                <span className="text-sm text-gray-600">{cat.name}</span>
-              </div>
-            ))}
-          </div>
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-2 mb-6">
+          {categories.map((cat) => (
+            <button
+              key={cat.name}
+              onClick={() => setActiveCategory(cat.value)}
+              className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                activeCategory === cat.value
+                  ? 'bg-stone-900 text-white'
+                  : 'bg-white text-stone-600 hover:bg-stone-100 border border-stone-200'
+              }`}
+            >
+              {cat.name}
+            </button>
+          ))}
         </div>
 
-        {/* Map Container */}
-        <div className="bg-white rounded-2xl shadow-lg p-4 mb-6">
-          <div className="relative bg-gradient-to-br from-green-100 via-emerald-50 to-blue-100 rounded-xl overflow-hidden" style={{ aspectRatio: '16/10' }}>
-            {/* Decorative elements */}
-            <div className="absolute inset-0">
-              {/* Lake */}
-              <div className="absolute bottom-0 right-0 w-1/3 h-1/3 bg-gradient-to-tl from-blue-300/50 to-transparent rounded-tl-full"></div>
-              
-              {/* Mountain silhouette */}
-              <svg className="absolute top-0 right-0 w-1/3 h-1/3 text-gray-300/30" viewBox="0 0 100 100" preserveAspectRatio="none">
-                <polygon points="50,10 100,100 0,100" fill="currentColor" />
-              </svg>
-              
-              {/* Grid lines */}
-              <div className="absolute inset-0 opacity-10">
-                <div className="h-full w-full" style={{ 
-                  backgroundImage: 'linear-gradient(to right, #166534 1px, transparent 1px), linear-gradient(to bottom, #166534 1px, transparent 1px)',
-                  backgroundSize: '10% 10%'
-                }}></div>
-              </div>
-
-              {/* Streets representation */}
-              <div className="absolute top-1/2 left-0 right-0 h-1 bg-gray-300/40 transform -translate-y-1/2"></div>
-              <div className="absolute top-0 bottom-0 left-1/2 w-1 bg-gray-300/40 transform -translate-x-1/2"></div>
-            </div>
-
-            {/* Location pins */}
-            {locations.map((location) => (
-              <button
-                key={location.id}
-                onClick={() => setSelectedLocation(location)}
-                className={`absolute transform -translate-x-1/2 -translate-y-1/2 transition-all hover:scale-125 z-10 ${
-                  selectedLocation?.id === location.id ? 'scale-125' : ''
-                }`}
-                style={{ left: `${location.position.x}%`, top: `${location.position.y}%` }}
-              >
-                <div className={`${location.color} w-8 h-8 rounded-full flex items-center justify-center shadow-lg border-2 border-white`}>
-                  <location.icon className="w-4 h-4 text-white" />
-                </div>
-                {selectedLocation?.id === location.id && (
-                  <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 translate-y-full">
-                    <div className="w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-gray-800 mx-auto"></div>
-                  </div>
-                )}
-              </button>
-            ))}
-
-            {/* Pucon label */}
-            <div className="absolute top-4 left-4 bg-white/80 backdrop-blur-sm px-3 py-1 rounded-full">
-              <span className="text-green-800 font-bold text-sm">🌋 פוקון, צ׳ילה</span>
-            </div>
-
-            {/* Lake label */}
-            <div className="absolute bottom-4 right-4 bg-blue-500/20 backdrop-blur-sm px-3 py-1 rounded-full">
-              <span className="text-blue-800 font-medium text-sm">אגם וויאריקה 🌊</span>
-            </div>
-          </div>
+        {/* Interactive Map */}
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+          <MapComponent 
+            locations={filteredLocations} 
+            selectedLocation={selectedLocation}
+            onSelectLocation={setSelectedLocation}
+          />
         </div>
 
         {/* Selected Location Info */}
         {selectedLocation && (
-          <div className="bg-white rounded-2xl shadow-lg p-6 mb-6 border-r-4 border-green-500">
+          <div className="bg-white rounded-xl shadow-lg p-5 mb-6 border-r-4 border-stone-900">
             <div className="flex items-start justify-between">
-              <div className="flex items-center gap-3">
-                <div className={`${selectedLocation.color} w-12 h-12 rounded-full flex items-center justify-center`}>
-                  <selectedLocation.icon className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-bold text-gray-800">{selectedLocation.name}</h3>
-                  <p className="text-gray-500 text-sm">{selectedLocation.category}</p>
-                </div>
+              <div>
+                <span className="text-xs font-medium text-stone-400 uppercase tracking-wider">
+                  {selectedLocation.category}
+                </span>
+                <h3 className="text-xl font-bold text-stone-800 mt-1">{selectedLocation.name}</h3>
+                <p className="text-stone-500 mt-1">{selectedLocation.description}</p>
               </div>
               <button 
                 onClick={() => setSelectedLocation(null)}
-                className="text-gray-400 hover:text-gray-600"
+                className="text-stone-400 hover:text-stone-600 text-xl"
               >
-                ✕
+                ×
               </button>
             </div>
-            <p className="mt-4 text-gray-700">{selectedLocation.description}</p>
             {selectedLocation.mapsUrl && (
               <a
                 href={selectedLocation.mapsUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 bg-blue-50 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-100 transition-colors"
+                className="mt-4 inline-flex items-center gap-2 bg-stone-900 text-white px-4 py-2 rounded-lg hover:bg-stone-800 transition-colors"
               >
-                <MapPin className="w-4 h-4" />
-                פתח ב-Google Maps
+                <Navigation className="w-4 h-4" />
+                נווט עם Google Maps
                 <ExternalLink className="w-4 h-4" />
               </a>
             )}
           </div>
         )}
 
-        {/* All Locations List */}
-        <div className="bg-white rounded-2xl shadow-lg p-6">
-          <h2 className="text-xl font-bold text-gray-800 mb-4">כל המיקומים</h2>
-          <div className="grid md:grid-cols-2 gap-3">
-            {locations.map((location) => (
+        {/* Locations List */}
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
+          <div className="p-4 border-b border-stone-100">
+            <h2 className="font-bold text-stone-800">כל המיקומים</h2>
+          </div>
+          <div className="divide-y divide-stone-100">
+            {filteredLocations.map((location) => (
               <button
                 key={location.id}
                 onClick={() => setSelectedLocation(location)}
-                className={`flex items-center gap-3 p-3 rounded-lg transition-colors text-right ${
-                  selectedLocation?.id === location.id 
-                    ? 'bg-green-50 border border-green-200' 
-                    : 'bg-gray-50 hover:bg-gray-100'
+                className={`w-full p-4 flex items-center gap-4 text-right hover:bg-stone-50 transition-colors ${
+                  selectedLocation?.id === location.id ? 'bg-stone-50' : ''
                 }`}
               >
-                <div className={`${location.color} w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0`}>
-                  <location.icon className="w-5 h-5 text-white" />
-                </div>
+                <div 
+                  className="w-3 h-3 rounded-full flex-shrink-0"
+                  style={{ backgroundColor: location.color }}
+                />
                 <div className="flex-grow">
-                  <p className="font-bold text-gray-800">{location.name}</p>
-                  <p className="text-sm text-gray-500">{location.category}</p>
+                  <p className="font-medium text-stone-800">{location.name}</p>
+                  <p className="text-sm text-stone-400">{location.description}</p>
                 </div>
+                {location.mapsUrl && (
+                  <a
+                    href={location.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
+                    className="text-stone-400 hover:text-stone-600"
+                  >
+                    <Navigation className="w-5 h-5" />
+                  </a>
+                )}
               </button>
             ))}
           </div>
