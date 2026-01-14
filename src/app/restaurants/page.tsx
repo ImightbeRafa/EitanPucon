@@ -2,7 +2,7 @@ import { UtensilsCrossed } from "lucide-react";
 
 export default function RestaurantsPage() {
   const restaurants = [
-    { category: "סושי", places: ["Sushi Mora", "Black Forest"] },
+    { category: "סושי", places: ["Sushi Mora", "Selva Negra"] },
     { category: "אוכל ישראלי", places: ["Just Delicious"] },
     { category: "איטלקי", places: ["Andiamo", "Fiorentini"] },
     { category: "המבורגר", places: ["El Camino"] },

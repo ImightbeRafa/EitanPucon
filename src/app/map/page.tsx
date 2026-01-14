@@ -36,8 +36,8 @@ export default function MapPage() {
       name: "Eitan Hostel - Arauco 272",
       category: "הוסטל",
       description: "ההוסטל הראשי שלנו",
-      lat: -39.2824,
-      lng: -71.9545,
+      lat: -39.2741,
+      lng: -71.9725,
       color: "#16a34a",
     },
     {
@@ -45,8 +45,8 @@ export default function MapPage() {
       name: "Eitan Hostel - Palguin 261",
       category: "הוסטל",
       description: "הוסטל נוסף",
-      lat: -39.2818,
-      lng: -71.9558,
+      lat: -39.2735,
+      lng: -71.9718,
       color: "#16a34a",
     },
     {
@@ -54,9 +54,10 @@ export default function MapPage() {
       name: "Eitan Hostel - Arauco 265",
       category: "הוסטל",
       description: "הוסטל נוסף",
-      lat: -39.2826,
-      lng: -71.9541,
+      lat: -39.2739299,
+      lng: -71.9727595,
       color: "#16a34a",
+      mapsUrl: "https://maps.app.goo.gl/QmdFSrWs4R9thaLy7"
     },
     // Banks
     {
@@ -64,8 +65,8 @@ export default function MapPage() {
       name: "כספומט Eltit",
       category: "בנק",
       description: "Banco Estado - עמלה 5,500 פסו",
-      lat: -39.2831,
-      lng: -71.9562,
+      lat: -39.2749,
+      lng: -71.9755,
       color: "#ea580c",
       mapsUrl: "https://maps.app.goo.gl/WENJ2PFUb2k9WUEx9"
     },
@@ -74,20 +75,20 @@ export default function MapPage() {
       name: "כספומט ליד הבנק",
       category: "בנק",
       description: "2 כספומטים ראשונים משמאל",
-      lat: -39.2819,
-      lng: -71.9538,
+      lat: -39.2755,
+      lng: -71.9745,
       color: "#ea580c",
       mapsUrl: "https://maps.app.goo.gl/7RZahtS1ASsBtLPo6"
     },
     {
       id: "casino",
-      name: "קזינו Enjoy",
+      name: "Casino Enjoy",
       category: "בנק",
       description: "0% עמלה! נפתח ב-18:00",
-      lat: -39.2798,
-      lng: -71.9489,
+      lat: -39.2722926,
+      lng: -71.9761117,
       color: "#9333ea",
-      mapsUrl: "https://maps.app.goo.gl/cqgN4xd6KDBNLbpB7"
+      mapsUrl: "https://maps.app.goo.gl/yA2fMUGj6BdLpcHg6"
     },
     // Restaurants
     {
@@ -95,17 +96,18 @@ export default function MapPage() {
       name: "Sushi Mora",
       category: "מסעדה",
       description: "סושי מומלץ",
-      lat: -39.2815,
-      lng: -71.9535,
+      lat: -39.2749054,
+      lng: -71.977065,
       color: "#dc2626",
+      mapsUrl: "https://maps.app.goo.gl/yhYVSnqiGwEf3YNh9"
     },
     {
       id: "sushi2",
-      name: "Black Forest",
+      name: "Selva Negra",
       category: "מסעדה",
       description: "סושי",
-      lat: -39.2822,
-      lng: -71.9552,
+      lat: -39.2752,
+      lng: -71.9758,
       color: "#dc2626",
     },
     {
@@ -113,63 +115,70 @@ export default function MapPage() {
       name: "Just Delicious",
       category: "מסעדה",
       description: "אוכל ישראלי",
-      lat: -39.2828,
-      lng: -71.9548,
+      lat: -39.2755617,
+      lng: -71.970294,
       color: "#2563eb",
+      mapsUrl: "https://maps.app.goo.gl/zYrB81bRfvztgRAh9"
     },
     {
       id: "italian1",
       name: "Andiamo",
       category: "מסעדה",
-      description: "איטלקי",
-      lat: -39.2820,
-      lng: -71.9530,
+      description: "פיצה, פסטה, בשרים",
+      lat: -39.275148,
+      lng: -71.971811,
       color: "#059669",
+      mapsUrl: "https://maps.app.goo.gl/Zup7m7ebGt43GDjD7"
     },
     {
       id: "italian2",
       name: "Fiorentini",
       category: "מסעדה",
       description: "איטלקי",
-      lat: -39.2812,
-      lng: -71.9542,
+      lat: -39.2769313,
+      lng: -71.9763476,
       color: "#059669",
+      mapsUrl: "https://maps.app.goo.gl/veFGRY6V6ni7ychMA"
     },
     {
       id: "burger",
       name: "El Camino",
       category: "מסעדה",
       description: "המבורגר",
-      lat: -39.2835,
-      lng: -71.9555,
+      lat: -39.2739527,
+      lng: -71.9756667,
       color: "#d97706",
+      mapsUrl: "https://maps.app.goo.gl/GCpCorZJB5MgjPgBA"
     },
     {
       id: "pizza1",
       name: "Pizza Cala",
       category: "מסעדה",
       description: "פיצה",
-      lat: -39.2808,
-      lng: -71.9538,
+      lat: -39.27643,
+      lng: -71.97724,
       color: "#dc2626",
+      mapsUrl: "https://maps.app.goo.gl/E2EK5mH6SeZRco8i9"
     },
     {
       id: "pizza2",
       name: "La Cova",
       category: "מסעדה",
-      description: "פיצה",
-      lat: -39.2830,
-      lng: -71.9525,
+      description: "פיצריה",
+      lat: -39.2746141,
+      lng: -71.9737631,
       color: "#dc2626",
+      mapsUrl: "https://maps.app.goo.gl/da691mQdnk59tzdY8"
     },
     {
       id: "thai",
       name: "Phuket",
       category: "מסעדה",
       description: "תאילנדי",
-      lat: -39.2817,
-      lng: -71.9560,
+      lat: -39.2740182,
+      lng: -71.9702866,
       color: "#0d9488",
+      mapsUrl: "https://maps.app.goo.gl/7MgpYqHrMvWyyWq19"
     },
     // Attractions
     {
@@ -179,15 +188,15 @@ export default function MapPage() {
       description: "נקודת ציון - ההר הגעש",
       lat: -39.4220,
       lng: -71.9394,
-      color: "#dc2626",
+      color: "#7c3aed",
     },
     {
       id: "lake",
       name: "אגם וויאריקה",
       category: "אטרקציה",
       description: "החוף המרכזי",
-      lat: -39.2756,
-      lng: -71.9523,
+      lat: -39.2695,
+      lng: -71.9760,
       color: "#0891b2",
     },
   ];
