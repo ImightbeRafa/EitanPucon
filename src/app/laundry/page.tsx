@@ -19,35 +19,45 @@ export default function LaundryPage() {
         </div>
 
         {/* NEW - Our Laundry Service */}
-        <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl p-6 mb-8 text-white">
-          <div className="flex items-center gap-3 mb-4">
-            <div className="bg-white/20 p-2 rounded-full">
-              <Shirt className="w-8 h-8" />
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+          <div className="md:flex">
+            {/* Image */}
+            <div className="md:w-2/5">
+              <img
+                src="/hostels/lavanderia.jpeg"
+                alt="המכבסה שלנו"
+                className="w-full h-64 md:h-full object-cover"
+              />
             </div>
-            <div>
-              <p className="text-sm font-bold bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full inline-block mb-1">
-                🆕 חדש חדש חדש!
-              </p>
-              <h2 className="text-2xl font-bold">יש לנו מכבסה!</h2>
-            </div>
-          </div>
-          <div className="bg-white/10 rounded-xl p-5 space-y-3">
-            <div className="flex items-center gap-2">
-              <MapPin className="w-5 h-5" />
-              <span className="font-bold">כתובת: Arauco 265</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Clock className="w-5 h-5" />
-              <span>פתוח כל יום: 09:30 - 18:00</span>
-            </div>
-            <div className="grid grid-cols-2 gap-4 mt-4">
-              <div className="bg-white/20 p-3 rounded-lg text-center">
-                <p className="text-2xl font-bold">4,000</p>
-                <p className="text-sm">פסו לק״ג</p>
+            {/* Content */}
+            <div className="md:w-3/5 p-6">
+              <div className="flex items-center gap-2 mb-3">
+                <span className="text-sm font-bold bg-green-100 text-green-700 px-3 py-1 rounded-full">
+                  🆕 חדש!
+                </span>
               </div>
-              <div className="bg-white/20 p-3 rounded-lg text-center">
-                <p className="text-2xl font-bold">6,000</p>
-                <p className="text-sm">פסו לק״ג בימי ראשון</p>
+              <h2 className="text-2xl font-bold text-stone-800 mb-4">יש לנו מכבסה!</h2>
+              
+              <div className="space-y-3 text-stone-600 mb-4">
+                <div className="flex items-center gap-2">
+                  <MapPin className="w-5 h-5 text-green-600" />
+                  <span className="font-medium">Arauco 265</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Clock className="w-5 h-5 text-green-600" />
+                  <span>כל יום: 09:30 - 18:00</span>
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3">
+                <div className="bg-green-50 p-3 rounded-lg text-center">
+                  <p className="text-2xl font-bold text-green-700">4,000</p>
+                  <p className="text-xs text-stone-500">פסו לק״ג</p>
+                </div>
+                <div className="bg-orange-50 p-3 rounded-lg text-center">
+                  <p className="text-2xl font-bold text-orange-600">6,000</p>
+                  <p className="text-xs text-stone-500">פסו לק״ג (ראשון)</p>
+                </div>
               </div>
             </div>
           </div>
