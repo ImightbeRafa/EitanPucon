@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mountain, Plane, Landmark, Shirt, MapPin, UtensilsCrossed, Home, MessageCircle } from "lucide-react";
+import { Mountain, Plane, Landmark, Shirt, MapPin, UtensilsCrossed, Home, MessageCircle, Thermometer } from "lucide-react";
 
 export default function HomePage() {
   return (
@@ -75,6 +75,19 @@ export default function HomePage() {
                 <h3 className="text-xl font-bold text-gray-800 mb-2">צניחה חופשית</h3>
                 <p className="text-gray-600">
                   קפיצה מ-11,000 רגל מעל הר הגעש - אדרנלין טהור
+                </p>
+              </div>
+            </Link>
+
+            {/* Termas Card */}
+            <Link href="/tours/termas" className="card-hover">
+              <div className="bg-white rounded-2xl p-8 shadow-lg h-full">
+                <div className="bg-rose-100 w-16 h-16 rounded-full flex items-center justify-center mb-4">
+                  <Thermometer className="w-8 h-8 text-rose-600" />
+                </div>
+                <h3 className="text-xl font-bold text-gray-800 mb-2">מעיינות חמים</h3>
+                <p className="text-gray-600">
+                  18 בריכות טבעיות בקניון ירוק מהמם
                 </p>
               </div>
             </Link>

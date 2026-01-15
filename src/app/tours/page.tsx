@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mountain, Plane, Waves, Users, Star } from "lucide-react";
+import { Mountain, Plane, Waves, Users, Star, Thermometer } from "lucide-react";
 
 export default function ToursPage() {
   return (
@@ -158,6 +158,31 @@ export default function ToursPage() {
                 <div className="flex items-center justify-between">
                   <span className="text-green-600 font-bold text-lg">
                     40,000 פסו
+                  </span>
+                  <span className="text-blue-600 font-medium">
+                    לפרטים נוספים ←
+                  </span>
+                </div>
+              </div>
+            </div>
+          </Link>
+
+          {/* Termas Tour */}
+          <Link href="/tours/termas" className="card-hover group">
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+              <div className="bg-gradient-to-br from-orange-500 to-red-600 h-48 flex items-center justify-center">
+                <Thermometer className="w-24 h-24 text-white opacity-80 group-hover:scale-110 transition-transform" />
+              </div>
+              <div className="p-6">
+                <h2 className="text-2xl font-bold text-gray-800 mb-2">
+                  מעיינות חמים
+                </h2>
+                <p className="text-gray-600 mb-4">
+                  Termas Geométricas - 18 בריכות טבעיות בקניון ירוק מהמם
+                </p>
+                <div className="flex items-center justify-between">
+                  <span className="text-green-600 font-bold text-lg">
+                    70,000 פסו
                   </span>
                   <span className="text-blue-600 font-medium">
                     לפרטים נוספים ←

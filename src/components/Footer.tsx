@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Mountain, MessageCircle } from "lucide-react";
+import { Mountain } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -35,19 +35,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* WhatsApp Contact */}
-        <div className="flex justify-center mt-6">
-          <a
-            href="https://wa.me/972533839795"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 bg-green-600 hover:bg-green-500 px-6 py-3 rounded-full transition-colors"
-          >
-            <MessageCircle className="w-5 h-5" />
-            <span className="font-bold">צרו קשר בוואטסאפ</span>
-          </a>
-        </div>
-        
         <div className="text-center mt-8 pt-6 border-t border-green-700">
           <p className="text-green-200 mb-2">
             הוסטלים: Arauco 272 • Palguin 261 • Arauco 265

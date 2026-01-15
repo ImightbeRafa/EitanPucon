@@ -18,15 +18,50 @@ export default function LaundryPage() {
           </p>
         </div>
 
+        {/* NEW - Our Laundry Service */}
+        <div className="bg-gradient-to-r from-green-500 to-emerald-600 rounded-2xl p-6 mb-8 text-white">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="bg-white/20 p-2 rounded-full">
+              <Shirt className="w-8 h-8" />
+            </div>
+            <div>
+              <p className="text-sm font-bold bg-yellow-400 text-yellow-900 px-3 py-1 rounded-full inline-block mb-1">
+                🆕 חדש חדש חדש!
+              </p>
+              <h2 className="text-2xl font-bold">יש לנו מכבסה!</h2>
+            </div>
+          </div>
+          <div className="bg-white/10 rounded-xl p-5 space-y-3">
+            <div className="flex items-center gap-2">
+              <MapPin className="w-5 h-5" />
+              <span className="font-bold">כתובת: Arauco 265</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Clock className="w-5 h-5" />
+              <span>פתוח כל יום: 09:30 - 18:00</span>
+            </div>
+            <div className="grid grid-cols-2 gap-4 mt-4">
+              <div className="bg-white/20 p-3 rounded-lg text-center">
+                <p className="text-2xl font-bold">4,000</p>
+                <p className="text-sm">פסו לק״ג</p>
+              </div>
+              <div className="bg-white/20 p-3 rounded-lg text-center">
+                <p className="text-2xl font-bold">6,000</p>
+                <p className="text-sm">פסו לק״ג בימי ראשון</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* Info Section */}
         <div className="bg-white rounded-2xl shadow-lg p-6 mb-8">
           <div className="flex items-center gap-3 mb-4">
             <Info className="w-6 h-6 text-blue-600" />
-            <h2 className="text-2xl font-bold text-gray-800">מידע כללי</h2>
+            <h2 className="text-2xl font-bold text-gray-800">מכבסות נוספות בעיר</h2>
           </div>
           <div className="space-y-4">
             <p className="text-gray-700">
-              בפוקון יש מספר מכבסות שמציעות שירותי כביסה. רוב המכבסות מציעות:
+              בנוסף למכבסה שלנו, בפוקון יש מספר מכבסות נוספות:
             </p>
             <div className="grid md:grid-cols-2 gap-4">
               <div className="bg-purple-50 p-4 rounded-lg">

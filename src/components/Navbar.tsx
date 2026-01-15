@@ -2,13 +2,14 @@
 
 import Link from "next/link";
 import { useState } from "react";
-import { Menu, X, Mountain, Landmark, Shirt, Home, Bus, MapPin, UtensilsCrossed } from "lucide-react";
+import { Menu, X, Mountain, Landmark, Shirt, Home, Bus, MapPin, UtensilsCrossed, Building } from "lucide-react";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const navItems = [
     { href: "/", label: "בית", icon: Home },
+    { href: "/hostels", label: "הוסטלים", icon: Building },
     { href: "/tours", label: "טיולים", icon: Mountain },
     { href: "/transport", label: "תחבורה", icon: Bus },
     { href: "/map", label: "מפה", icon: MapPin },
