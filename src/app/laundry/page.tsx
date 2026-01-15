@@ -56,7 +56,7 @@ export default function LaundryPage() {
                 </div>
                 <div className="bg-orange-50 p-3 rounded-lg text-center">
                   <p className="text-2xl font-bold text-orange-600">6,000</p>
-                  <p className="text-xs text-stone-500">פסו לק״ג (ראשון)</p>
+                  <p className="text-xs text-stone-500">פסו לק״ג (ימי ראשון)</p>
                 </div>
               </div>
             </div>
