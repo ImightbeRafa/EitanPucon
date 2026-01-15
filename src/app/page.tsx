@@ -175,13 +175,34 @@ export default function HomePage() {
           </div>
           <div className="text-center mt-8">
             <a
-              href="https://wa.me/972533839795"
+              href="https://wa.me/message/YZN3TJYHFWXOH1"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 bg-green-600 text-white px-6 py-3 rounded-full font-bold hover:bg-green-700 transition-colors"
             >
               <MessageCircle className="w-5 h-5" />
-              צרו קשר בוואטסאפ
+              מנהל ההוסטל - WhatsApp
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* Tours Contact Section */}
+      <section className="py-12 px-4 bg-blue-600">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-white">
+            <div>
+              <h2 className="text-2xl md:text-3xl font-bold mb-2">🎯 רוצים להזמין טיולים?</h2>
+              <p className="opacity-90">Book tours and adventures with Eitan</p>
+            </div>
+            <a
+              href="https://wa.me/972533839795"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-white text-blue-700 px-8 py-4 rounded-full font-bold hover:bg-blue-50 transition-colors text-lg"
+            >
+              <MessageCircle className="w-6 h-6" />
+              איתן - הזמנת טיולים
             </a>
           </div>
         </div>
