@@ -272,76 +272,74 @@ export default function MapPage() {
         </div>
 
         {/* Interactive Map */}
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-8">
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-4 relative">
           <MapComponent 
             locations={filteredLocations} 
             selectedLocation={selectedLocation}
             onSelectLocation={setSelectedLocation}
           />
-        </div>
-
-        {/* Selected Location Info Card */}
-        {selectedLocation && (
-          <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md z-50 animate-in slide-in-from-bottom-4 duration-300">
-            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-stone-100">
-              {/* Color accent bar */}
-              <div 
-                className="h-1.5 w-full"
-                style={{ backgroundColor: selectedLocation.color }}
-              />
-              
-              <div className="p-5">
-                {/* Header with close button */}
-                <div className="flex items-start justify-between gap-4 mb-3">
-                  <div className="flex items-center gap-3">
-                    <div 
-                      className="w-10 h-10 rounded-xl flex items-center justify-center text-white text-lg"
-                      style={{ backgroundColor: selectedLocation.color }}
-                    >
-                      {selectedLocation.category === "הוסטל" && "🏠"}
-                      {selectedLocation.category === "בנק" && "🏦"}
-                      {selectedLocation.category === "מסעדה" && "🍽️"}
-                      {selectedLocation.category === "מכבסה" && "🧺"}
-                      {selectedLocation.category === "אטרקציה" && "⛰️"}
-                    </div>
-                    <div>
+          
+          {/* Selected Location Info Card - overlaid on map */}
+          {selectedLocation && (
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[92%] max-w-sm z-[1000]">
+              <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-stone-200">
+                {/* Color accent bar */}
+                <div 
+                  className="h-1.5 w-full"
+                  style={{ backgroundColor: selectedLocation.color }}
+                />
+                
+                <div className="p-4">
+                  {/* Header with close button */}
+                  <div className="flex items-start justify-between gap-3 mb-2">
+                    <div className="flex items-center gap-2">
+                      <div 
+                        className="w-9 h-9 rounded-lg flex items-center justify-center text-white text-base"
+                        style={{ backgroundColor: selectedLocation.color }}
+                      >
+                        {selectedLocation.category === "הוסטל" && "🏠"}
+                        {selectedLocation.category === "בנק" && "🏦"}
+                        {selectedLocation.category === "מסעדה" && "🍽️"}
+                        {selectedLocation.category === "מכבסה" && "🧺"}
+                        {selectedLocation.category === "אטרקציה" && "⛰️"}
+                      </div>
                       <span 
-                        className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full"
+                        className="text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full"
                         style={{ backgroundColor: `${selectedLocation.color}20`, color: selectedLocation.color }}
                       >
                         {selectedLocation.category}
                       </span>
                     </div>
+                    <button 
+                      onClick={() => setSelectedLocation(null)}
+                      className="w-7 h-7 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center text-stone-500 hover:text-stone-700 transition-colors text-sm"
+                    >
+                      ✕
+                    </button>
                   </div>
-                  <button 
-                    onClick={() => setSelectedLocation(null)}
-                    className="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center text-stone-500 hover:text-stone-700 transition-colors"
-                  >
-                    ✕
-                  </button>
+
+                  {/* Content */}
+                  <h3 className="text-lg font-bold text-stone-900 mb-0.5">{selectedLocation.name}</h3>
+                  <p className="text-stone-500 text-sm mb-3">{selectedLocation.description}</p>
+
+                  {/* Google Maps Button */}
+                  {selectedLocation.mapsUrl && (
+                    <a
+                      href={selectedLocation.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-600 to-green-500 text-white py-2.5 rounded-xl font-medium hover:from-green-700 hover:to-green-600 transition-all shadow-lg shadow-green-500/20 text-sm"
+                    >
+                      <Navigation className="w-4 h-4" />
+                      <span>נווט עם Google Maps</span>
+                      <ExternalLink className="w-3.5 h-3.5 opacity-70" />
+                    </a>
+                  )}
                 </div>
-
-                {/* Content */}
-                <h3 className="text-xl font-bold text-stone-900 mb-1">{selectedLocation.name}</h3>
-                <p className="text-stone-500 text-sm mb-4">{selectedLocation.description}</p>
-
-                {/* Google Maps Button */}
-                {selectedLocation.mapsUrl && (
-                  <a
-                    href={selectedLocation.mapsUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-600 to-green-500 text-white py-3 rounded-xl font-medium hover:from-green-700 hover:to-green-600 transition-all shadow-lg shadow-green-500/20"
-                  >
-                    <Navigation className="w-5 h-5" />
-                    <span>נווט עם Google Maps</span>
-                    <ExternalLink className="w-4 h-4 opacity-70" />
-                  </a>
-                )}
               </div>
             </div>
-          </div>
-        )}
+          )}
+        </div>
 
         {/* Locations List */}
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
