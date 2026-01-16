@@ -39,6 +39,7 @@ export default function MapPage() {
       lat: -39.2741,
       lng: -71.9725,
       color: "#16a34a",
+      mapsUrl: "https://maps.app.goo.gl/Ger5JQPAH4Q2FbTF8"
     },
     {
       id: "hostel2",
@@ -48,6 +49,7 @@ export default function MapPage() {
       lat: -39.2735,
       lng: -71.9718,
       color: "#16a34a",
+      mapsUrl: "https://maps.app.goo.gl/Ger5JQPAH4Q2FbTF8"
     },
     {
       id: "hostel3",
@@ -109,6 +111,7 @@ export default function MapPage() {
       lat: -39.2752,
       lng: -71.9758,
       color: "#dc2626",
+      mapsUrl: "https://maps.app.goo.gl/n3fX6ABfsQSwxqJo7"
     },
     {
       id: "israeli",
@@ -180,6 +183,27 @@ export default function MapPage() {
       color: "#0d9488",
       mapsUrl: "https://maps.app.goo.gl/7MgpYqHrMvWyyWq19"
     },
+    {
+      id: "cafe",
+      name: "Madd Goat",
+      category: "מסעדה",
+      description: "קפה",
+      lat: -39.2746,
+      lng: -71.9742,
+      color: "#8b5cf6",
+      mapsUrl: "https://maps.app.goo.gl/2MVK8a9RycCXGLGQA"
+    },
+    // Laundry
+    {
+      id: "lavanderia",
+      name: "המכבסה שלנו",
+      category: "מכבסה",
+      description: "מכבסה ב-Arauco 265 - 4,000 פסו לק״ג",
+      lat: -39.2739299,
+      lng: -71.9727595,
+      color: "#a855f7",
+      mapsUrl: "https://maps.app.goo.gl/QmdFSrWs4R9thaLy7"
+    },
     // Attractions
     {
       id: "volcano",
@@ -206,6 +230,7 @@ export default function MapPage() {
     { name: "הוסטלים", value: "הוסטל" },
     { name: "בנקים", value: "בנק" },
     { name: "מסעדות", value: "מסעדה" },
+    { name: "מכבסה", value: "מכבסה" },
     { name: "אטרקציות", value: "אטרקציה" },
   ];
 
@@ -255,36 +280,66 @@ export default function MapPage() {
           />
         </div>
 
-        {/* Selected Location Info */}
+        {/* Selected Location Info Card */}
         {selectedLocation && (
-          <div className="bg-white rounded-xl shadow-lg p-5 mb-6 border-r-4 border-stone-900">
-            <div className="flex items-start justify-between">
-              <div>
-                <span className="text-xs font-medium text-stone-400 uppercase tracking-wider">
-                  {selectedLocation.category}
-                </span>
-                <h3 className="text-xl font-bold text-stone-800 mt-1">{selectedLocation.name}</h3>
-                <p className="text-stone-500 mt-1">{selectedLocation.description}</p>
+          <div className="fixed bottom-6 left-1/2 -translate-x-1/2 w-[90%] max-w-md z-50 animate-in slide-in-from-bottom-4 duration-300">
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-stone-100">
+              {/* Color accent bar */}
+              <div 
+                className="h-1.5 w-full"
+                style={{ backgroundColor: selectedLocation.color }}
+              />
+              
+              <div className="p-5">
+                {/* Header with close button */}
+                <div className="flex items-start justify-between gap-4 mb-3">
+                  <div className="flex items-center gap-3">
+                    <div 
+                      className="w-10 h-10 rounded-xl flex items-center justify-center text-white text-lg"
+                      style={{ backgroundColor: selectedLocation.color }}
+                    >
+                      {selectedLocation.category === "הוסטל" && "🏠"}
+                      {selectedLocation.category === "בנק" && "🏦"}
+                      {selectedLocation.category === "מסעדה" && "🍽️"}
+                      {selectedLocation.category === "מכבסה" && "🧺"}
+                      {selectedLocation.category === "אטרקציה" && "⛰️"}
+                    </div>
+                    <div>
+                      <span 
+                        className="text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded-full"
+                        style={{ backgroundColor: `${selectedLocation.color}20`, color: selectedLocation.color }}
+                      >
+                        {selectedLocation.category}
+                      </span>
+                    </div>
+                  </div>
+                  <button 
+                    onClick={() => setSelectedLocation(null)}
+                    className="w-8 h-8 rounded-full bg-stone-100 hover:bg-stone-200 flex items-center justify-center text-stone-500 hover:text-stone-700 transition-colors"
+                  >
+                    ✕
+                  </button>
+                </div>
+
+                {/* Content */}
+                <h3 className="text-xl font-bold text-stone-900 mb-1">{selectedLocation.name}</h3>
+                <p className="text-stone-500 text-sm mb-4">{selectedLocation.description}</p>
+
+                {/* Google Maps Button */}
+                {selectedLocation.mapsUrl && (
+                  <a
+                    href={selectedLocation.mapsUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 w-full bg-gradient-to-r from-green-600 to-green-500 text-white py-3 rounded-xl font-medium hover:from-green-700 hover:to-green-600 transition-all shadow-lg shadow-green-500/20"
+                  >
+                    <Navigation className="w-5 h-5" />
+                    <span>נווט עם Google Maps</span>
+                    <ExternalLink className="w-4 h-4 opacity-70" />
+                  </a>
+                )}
               </div>
-              <button 
-                onClick={() => setSelectedLocation(null)}
-                className="text-stone-400 hover:text-stone-600 text-xl"
-              >
-                ×
-              </button>
             </div>
-            {selectedLocation.mapsUrl && (
-              <a
-                href={selectedLocation.mapsUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-4 inline-flex items-center gap-2 bg-stone-900 text-white px-4 py-2 rounded-lg hover:bg-stone-800 transition-colors"
-              >
-                <Navigation className="w-4 h-4" />
-                נווט עם Google Maps
-                <ExternalLink className="w-4 h-4" />
-              </a>
-            )}
           </div>
         )}
 

@@ -1,13 +1,52 @@
-import { UtensilsCrossed } from "lucide-react";
+import { UtensilsCrossed, MapPin } from "lucide-react";
 
 export default function RestaurantsPage() {
   const restaurants = [
-    { category: "סושי", places: ["Sushi Mora", "Selva Negra"] },
-    { category: "אוכל ישראלי", places: ["Just Delicious"] },
-    { category: "איטלקי", places: ["Andiamo", "Fiorentini"] },
-    { category: "המבורגר", places: ["El Camino"] },
-    { category: "פיצה", places: ["Pizza Cala", "La Cova"] },
-    { category: "תאילנדי", places: ["Phuket"] },
+    { 
+      category: "סושי", 
+      places: [
+        { name: "Sushi Mora", url: "https://maps.app.goo.gl/yhYVSnqiGwEf3YNh9" },
+        { name: "Selva Negra", url: "https://maps.app.goo.gl/n3fX6ABfsQSwxqJo7" }
+      ] 
+    },
+    { 
+      category: "אוכל ישראלי", 
+      places: [
+        { name: "Just Delicious", url: "https://maps.app.goo.gl/zYrB81bRfvztgRAh9" }
+      ] 
+    },
+    { 
+      category: "איטלקי", 
+      places: [
+        { name: "Andiamo", url: "https://maps.app.goo.gl/Zup7m7ebGt43GDjD7" },
+        { name: "Fiorentini", url: "https://maps.app.goo.gl/veFGRY6V6ni7ychMA" }
+      ] 
+    },
+    { 
+      category: "המבורגר", 
+      places: [
+        { name: "El Camino", url: "https://maps.app.goo.gl/GCpCorZJB5MgjPgBA" }
+      ] 
+    },
+    { 
+      category: "פיצה", 
+      places: [
+        { name: "Pizza Cala", url: "https://maps.app.goo.gl/E2EK5mH6SeZRco8i9" },
+        { name: "La Cova", url: "https://maps.app.goo.gl/da691mQdnk59tzdY8" }
+      ] 
+    },
+    { 
+      category: "תאילנדי", 
+      places: [
+        { name: "Phuket", url: "https://maps.app.goo.gl/7MgpYqHrMvWyyWq19" }
+      ] 
+    },
+    { 
+      category: "קפה", 
+      places: [
+        { name: "Madd Goat", url: "https://maps.app.goo.gl/2MVK8a9RycCXGLGQA" }
+      ] 
+    },
   ];
 
   return (
@@ -35,12 +74,25 @@ export default function RestaurantsPage() {
               </h2>
               <div className="space-y-2">
                 {category.places.map((place, placeIndex) => (
-                  <p 
-                    key={placeIndex}
-                    className="text-xl text-stone-800 font-light"
-                  >
-                    {place}
-                  </p>
+                  place.url ? (
+                    <a 
+                      key={placeIndex}
+                      href={place.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2 text-xl text-stone-800 font-light hover:text-green-600 transition-colors group"
+                    >
+                      {place.name}
+                      <MapPin className="w-4 h-4 text-stone-400 group-hover:text-green-600" />
+                    </a>
+                  ) : (
+                    <p 
+                      key={placeIndex}
+                      className="text-xl text-stone-800 font-light"
+                    >
+                      {place.name}
+                    </p>
+                  )
                 ))}
               </div>
             </div>

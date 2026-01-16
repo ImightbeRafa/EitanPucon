@@ -15,7 +15,7 @@ export default function Navbar() {
     { href: "/map", label: "מפה", icon: MapPin },
     { href: "/restaurants", label: "מסעדות", icon: UtensilsCrossed },
     { href: "/bank", label: "כסף", icon: Landmark },
-    { href: "/laundry", label: "מכבסות", icon: Shirt },
+    { href: "/laundry", label: "המכבסה שלנו", icon: Shirt },
   ];
 
   return (

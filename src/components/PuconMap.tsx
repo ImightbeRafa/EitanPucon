@@ -86,26 +86,6 @@ export default function PuconMap({ locations, selectedLocation, onSelectLocation
           onSelectLocation(location);
         });
 
-      // Add rich tooltip with info card
-      const tooltipContent = `
-        <div style="min-width: 180px; padding: 4px 0;">
-          <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 6px;">
-            <div style="width: 10px; height: 10px; border-radius: 50%; background: ${location.color};"></div>
-            <span style="font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; color: #a8a29e;">${location.category}</span>
-          </div>
-          <div style="font-size: 15px; font-weight: 600; color: #1c1917; margin-bottom: 4px;">${location.name}</div>
-          <div style="font-size: 13px; color: #78716c;">${location.description}</div>
-          ${location.mapsUrl ? '<div style="font-size: 11px; color: #0891b2; margin-top: 6px;">לחץ לניווט →</div>' : ''}
-        </div>
-      `;
-      
-      marker.bindTooltip(tooltipContent, {
-        permanent: false,
-        direction: 'top',
-        offset: [0, -10],
-        className: 'custom-tooltip'
-      });
-
       markersRef.current.push(marker);
     });
   }, [locations, onSelectLocation]);
@@ -123,23 +103,6 @@ export default function PuconMap({ locations, selectedLocation, onSelectLocation
   return (
     <>
       <style jsx global>{`
-        .custom-tooltip {
-          background: white;
-          border: none;
-          border-radius: 12px;
-          color: #1c1917;
-          font-weight: 400;
-          padding: 12px 16px;
-          box-shadow: 0 8px 30px rgba(0,0,0,0.12);
-          font-family: inherit;
-          max-width: 250px;
-        }
-        .custom-tooltip::before {
-          border-top-color: white !important;
-        }
-        .leaflet-tooltip-top:before {
-          border-top-color: white !important;
-        }
         .leaflet-control-zoom {
           border: none !important;
           box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;

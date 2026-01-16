@@ -190,7 +190,7 @@ export default function HomePage() {
       {/* Tours Contact Section */}
       <section className="py-10 px-4">
         <div className="max-w-2xl mx-auto text-center">
-          <p className="text-stone-500 mb-3">להזמנת טיולים והרפתקאות</p>
+          <p className="text-stone-500 mb-3">להזמנת אטרקציות והרפתקאות</p>
           <a
             href="https://wa.me/972533839795"
             target="_blank"
@@ -198,8 +198,20 @@ export default function HomePage() {
             className="inline-flex items-center gap-2 text-green-600 hover:text-green-700 font-medium transition-colors"
           >
             <MessageCircle className="w-5 h-5" />
-            איתן - WhatsApp
+            איתן אטרקציות פוקון
           </a>
+        </div>
+      </section>
+
+      {/* MuchiCard Badge */}
+      <section className="py-6 px-4">
+        <div className="max-w-md mx-auto flex items-center justify-center gap-3 bg-white/80 rounded-full px-5 py-3 shadow-sm">
+          <img 
+            src="/hostels/muchi.jpeg" 
+            alt="MuchiCard" 
+            className="w-10 h-10 rounded-full object-cover"
+          />
+          <span className="text-stone-600 text-sm">העסק הזה מכבד מוצ׳יקארד</span>
         </div>
       </section>
 
