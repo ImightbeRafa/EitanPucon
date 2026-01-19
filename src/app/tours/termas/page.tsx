@@ -73,7 +73,7 @@ export default function TermasPage() {
             <h2 className="text-2xl font-bold text-gray-800">מחיר</h2>
           </div>
           <div className="bg-white rounded-xl p-4">
-            <p className="text-3xl font-bold text-green-600">70,000 פסו צ׳ילאני</p>
+            <p className="text-3xl font-bold text-green-600">40,000 פסו צ׳ילאני</p>
           </div>
         </div>
 

@@ -73,11 +73,11 @@ export default function VolcanoPage() {
           <div className="space-y-3">
             <div className="flex justify-between items-center py-3 border-b">
               <span className="text-gray-700">מזומן</span>
-              <span className="font-bold text-green-600 text-xl">140,000 פסו</span>
+              <span className="font-bold text-green-600 text-xl">145,000 פסו</span>
             </div>
             <div className="flex justify-between items-center py-3 border-b">
               <span className="text-gray-700">לבעלי מוצ׳יקארד</span>
-              <span className="font-bold text-green-600 text-xl">130,000 פסו</span>
+              <span className="font-bold text-green-600 text-xl">135,000 פסו</span>
             </div>
             <div className="flex justify-between items-center py-3 border-b">
               <span className="text-gray-700">רכבל (חוסך ~שעה בכל כיוון)</span>

@@ -32,7 +32,7 @@ export default function ToursPage() {
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-green-600 font-bold text-lg">
-                    מ-130,000 פסו
+                    מ-135,000 פסו
                   </span>
                   <span className="text-blue-600 font-medium">
                     לפרטים נוספים ←
@@ -82,7 +82,7 @@ export default function ToursPage() {
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-green-600 font-bold text-lg">
-                    35,000 פסו
+                    מ-40,000 פסו
                   </span>
                   <span className="text-blue-600 font-medium">
                     לפרטים נוספים ←
@@ -150,7 +150,7 @@ export default function ToursPage() {
               </div>
               <div className="p-6">
                 <h2 className="text-2xl font-bold text-gray-800 mb-2">
-                  אומגות (זיפליין)
+                  אומגות - Salto La China
                 </h2>
                 <p className="text-gray-600 mb-4">
                   7 אומגות מעל מפל של 100 מטר - הכי טובות בפוקון!
@@ -182,7 +182,7 @@ export default function ToursPage() {
                 </p>
                 <div className="flex items-center justify-between">
                   <span className="text-green-600 font-bold text-lg">
-                    70,000 פסו
+                    40,000 פסו
                   </span>
                   <span className="text-blue-600 font-medium">
                     לפרטים נוספים ←

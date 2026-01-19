@@ -61,8 +61,16 @@ export default function CanyoningPage() {
             <DollarSign className="w-6 h-6 text-green-600" />
             <h2 className="text-2xl font-bold text-gray-800">מחיר</h2>
           </div>
-          <div className="bg-white rounded-xl p-4">
-            <p className="text-3xl font-bold text-green-600">35,000 פסו צ׳ילאני</p>
+          <div className="grid md:grid-cols-2 gap-4">
+            <div className="bg-white rounded-xl p-4 border-2 border-cyan-200">
+              <p className="text-sm text-cyan-600 font-bold mb-1">סנפלינג אלטו</p>
+              <p className="text-2xl font-bold text-green-600">50,000 פסו</p>
+            </div>
+            <div className="bg-white rounded-xl p-4 border-2 border-blue-200">
+              <p className="text-sm text-blue-600 font-bold mb-1">סנפלינג לארגו</p>
+              <p className="text-2xl font-bold text-green-600">40,000 פסו</p>
+              <p className="text-sm text-purple-600 font-medium">עם מוצ׳יקארד: 35,000 פסו</p>
+            </div>
           </div>
           <div className="mt-4 flex items-start gap-2 text-gray-600">
             <Camera className="w-5 h-5 mt-1" />

@@ -68,7 +68,7 @@ export default function RaftingPage() {
             </div>
             <div className="bg-white rounded-xl p-4 border-2 border-indigo-200">
               <p className="text-sm text-indigo-600 font-bold mb-1">דרגה 4 (החזק יותר)</p>
-              <p className="text-2xl font-bold text-green-600">35,000 פסו</p>
+              <p className="text-2xl font-bold text-green-600">40,000 פסו</p>
             </div>
           </div>
           <div className="mt-4 flex items-start gap-2 text-gray-600">

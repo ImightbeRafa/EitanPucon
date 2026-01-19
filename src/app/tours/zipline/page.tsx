@@ -22,6 +22,9 @@ export default function ZiplinePage() {
           <p className="text-xl opacity-90">
             7 אומגות מעל מפל של 100 מטר גובה - מקום בטבע מדהים!
           </p>
+          <p className="text-lg opacity-80 mt-2">
+            📍 SALTO LA CHINA
+          </p>
         </div>
 
         {/* Video Link */}
